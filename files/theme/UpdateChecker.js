@@ -12,7 +12,7 @@ var updateCheckerVersion = '1.0.0'
 * theme - Choose from one of the preset background images.
 */
 /* Files */
-const PREMIUM = '/files/theme/json/premium.json'
+const PREMIUM = '/Update_Checker/files/theme/json/premium.json'
 
 $(document).ready(function () {
     var urlString = location.search;
@@ -56,7 +56,7 @@ function premiumURL(url) {
                 var description = json['premium:description']
                 var style = json['premium:style']
                 if (json.premium_badge != false) {
-                    document.querySelector('.premium-container').innerHTML = '<img onclick="premiumMenu(true)" class="premium-icon" onmouseover="this.src=\'/files/theme/images/premium_hover.png\';" onmouseout="this.src=\'/files/theme/images/premium.png\';" src="/files/theme/images/premium.png"/>'
+                    document.querySelector('.premium-container').innerHTML = '<img onclick="premiumMenu(true)" class="premium-icon" onmouseover="this.src=\'/Update_Checker/files/theme/images/premium_hover.png\';" onmouseout="this.src=\'/Update_Checker/files/theme/images/premium.png\';" src="/Update_Checker/files/theme/images/premium.png"/>'
                 }
                 /* description */
                 if (description != undefined) {
@@ -164,7 +164,7 @@ function premiumURL(url) {
         } else {
             /* Not premium */
             console.log('premiumURL: false')
-            document.querySelector('.premium-container').innerHTML = '<img onclick="premiumMenu(false)" onmouseover="this.src=\'/files/theme/images/regular_hover.png\';" onmouseout="this.src=\'/files/theme/images/regular.png\';" class="premium-icon" src="/files/theme/images/regular.png"/>'
+            document.querySelector('.premium-container').innerHTML = '<img onclick="premiumMenu(false)" onmouseover="this.src=\'/Update_Checker/files/theme/images/regular_hover.png\';" onmouseout="this.src=\'/Update_Checker/files/theme/images/regular.png\';" class="premium-icon" src="/Update_Checker/files/theme/images/regular.png"/>'
             $.getJSON(url.updateJSONURL, function (json) {
                 if (json['premium:description'] != undefined) {
                     console.log('To use this feature consider becoming a supporter!')
@@ -323,10 +323,10 @@ function changeTheme(input, type) {
     /* preset image */
     if (type == 'PRESET') {
         var Theme = document.querySelector(input).value || 'deepslate'
-        backgroundImageBuilder('/files/theme/options_background/' + Theme + '.png')
+        backgroundImageBuilder('/Update_Checker/files/theme/options_background/' + Theme + '.png')
     }
     if (type == 'PRESETURL') {
-        backgroundImageBuilder('/files/theme/options_background/' + input + '.png')
+        backgroundImageBuilder('/Update_Checker/files/theme/options_background/' + input + '.png')
         hideElement('.background-changer');
     }
     if (type == 'CUSTOM') {
@@ -349,7 +349,7 @@ function changeFavicon(input, type) {
     }
     /* preset image */
     if (type == 'PRESETURL') {
-        faviconBuilder('/files/theme/options_background/' + input + '.png')
+        faviconBuilder('/Update_Checker/files/theme/options_background/' + input + '.png')
     }
     if (type == 'CUSTOM') {
         faviconBuilder(input)

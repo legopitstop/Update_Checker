@@ -35,7 +35,7 @@
 }
 
 body {
-    background-image: url('/files/theme/options_background/deepslate.png');
+    background-image: url('/Update_Checker/files/theme/options_background/deepslate.png');
     background-color: #444444;
     image-rendering: pixelated;
     background-size: var(--background-size);

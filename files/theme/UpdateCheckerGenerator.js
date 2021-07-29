@@ -2,7 +2,7 @@
  * Javascript file just for update-checker-generator.html
 */
 
-const BASEURL = 'https://legopitstop.github.io/Update_Checker/update-checker-generator.html'
+const BASEURL = 'https://legopitstop.github.io/Update_Checker/update-checker.html'
 
 $(document).ready(function () {
     /* Take uploaded file and convert to Base64 */
