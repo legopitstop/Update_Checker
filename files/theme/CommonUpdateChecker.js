@@ -4,8 +4,8 @@
 */
 
 /* Files */
-const BACKGROUND = './files/theme/json/options_background.json'
-const VERSIONS = './files/theme/json/minecraft_versions.json'
+const BACKGROUND = '/files/theme/json/options_background.json'
+const VERSIONS = '/files/theme/json/minecraft_versions.json'
 
 $(document).ready(function () {
     backgroundThemeList();

@@ -12,7 +12,7 @@ var updateCheckerVersion = '1.0.0'
 * theme - Choose from one of the preset background images.
 */
 /* Files */
-const PREMIUM = './files/theme/json/premium.json'
+const PREMIUM = '/files/theme/json/premium.json'
 
 $(document).ready(function () {
     var urlString = location.search;
