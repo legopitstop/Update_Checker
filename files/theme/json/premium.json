@@ -1,4 +1,5 @@
 [
     "https://legopitstop.github.io/Update_Checker/examples/update.json",
-    "https://legopitstop.github.io/Update_Checker/examples/morefood-datapack.json"
+    "https://raw.githubusercontent.com/legopitstop/Lots-More-Food-Mods/main/Lots%20More%20Food%20Addon/update.json",
+    "https://raw.githubusercontent.com/legopitstop/Lots-More-Food-Mods/main/Lots%20More%20Food%20Datapack/update.json"
 ]
