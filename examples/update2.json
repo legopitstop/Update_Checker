@@ -1,0 +1,25 @@
+{
+    "__comment": "This is a premium URL, premium features will be optionally loaded.",
+    "$schema": "./schema.json",
+
+    "homepage": "#",
+    "premium_badge": true,
+    "premium:description": {
+        "favicon": "deepslate_tiles",
+        "theme": "deepslate_tiles"
+    },
+    "1.17": {
+        "1.7.0": "This is the changelog that is from the JSON! * It provides some custom in-line formatting! \nLike the following: * bullets that use '*', '-', and '-' * replacement texts for example '{{HOMEPAGE}}' will return the homepage inside the JSON!",
+        "1.6.0": "* 1.17.1-1.6.0"
+    },
+    "1.16": {
+        "1.5.0": "* 1.16.5-1.5.0",
+        "1.4.0": "* 1.16.5-1.4.0"
+    },
+    "promos": {
+        "1.17-recommended": "1.7.0",
+		"1.17-latest": "1.7.0",
+        "1.16-recommended": "1.5.0",
+		"1.16-latest": "1.5.0"
+    }
+}

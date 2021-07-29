@@ -1,0 +1,208 @@
+:root {
+    /* Base */
+    --color: #ffffff;
+    --background-color: #000000;
+    --border-color: #000000;
+    --border-radius: 20px;
+    
+    /* Button */
+    --button-color: #000000;
+    --button-background-color: #777777;
+    --button-border-color: #000000;
+    --button-border-radius: 10px;
+
+    --buttonHover-color: var(--button-color);
+    --buttonHover-background-color: #555555;
+    --buttonHover-border-color: var(--button-border-color);
+    --buttonHover-border-radius: var(--button-border-radius);
+
+    /* scrollbar */
+    --scroll-background-color: var(--button-background-color);
+    --scroll-border-radius: var(--button-border-radius);
+    --scrollHover-background-color: var(--buttonHover-background-color);
+    --scrollHover-border-radius: var(--button-border-radius);
+    --scrollTrack-background-color: #111111;
+    --scrollTrack-border-radius: var(--button-border-radius);
+    --scrollTrackHover-background-color: var(--scrollTrack-background-color);
+    --scrollTrackHover-border-radius: var(--button-border-radius);
+
+    /* Background */
+    --background-size: 256px 256px;
+    --background-repeat: unset;
+    --background-animation: unset;
+    --background-directionFrom: 0 0;
+    --background-directionTo: 100% 0;
+}
+
+body {
+    background-image: url('/files/theme/options_background/deepslate.png');
+    background-color: #444444;
+    image-rendering: pixelated;
+    background-size: var(--background-size);
+    background-repeat: var(--background-repeat);
+    animation: var(--background-animation);
+}
+
+@keyframes scroll {
+	from { background-position: var(--background-directionFrom); }
+	to { background-position: var(--background-directionTo); }
+}
+
+.premium-container {padding: 5px;}
+.premium-icon {width: 40px;}
+
+.center {
+    text-align: center;
+}
+
+.display-container {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.display {
+    position: relative;
+    border: 5px solid var(--border-color);
+    opacity: 80%;
+    color: var(--color);
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    width: 500px;
+    height: 500px;
+    padding-left: 10px;
+}
+
+.button.download {
+    left: 10px;
+}
+
+.changelog {
+    border: none;
+    resize: none;
+    background-color: inherit;
+    color: inherit;
+    width: 100%;
+    height: 23%;
+    left: 0;
+}
+.changelog:focus {
+    outline: none;
+}
+
+.indent {
+    text-indent: 10px;
+}
+
+.background-changer {
+    color: var(--color);
+    background-color: var(--background-color);
+    border: 5px solid var(--border-color);
+    border-radius: var(--border-radius);
+    position: relative;
+    opacity: 80%;
+    width: 230px;
+    height: 20px;
+    padding-left: 10px;
+    left: 86%;
+    top: 90%;
+}
+
+.background-changer .theme {
+    color: var(--color);
+    background-color: var(--background-color);
+    border: none;
+    width: auto;
+}
+/* Button */
+a.button {
+    text-decoration: none;
+    position: relative;
+    color: var(--button-color);
+    padding: 5px;
+    background-color: var(--button-background-color);
+    border: 1px outset var(--border-color);
+    border-radius: var(--button-border-radius);
+}
+
+a.button:hover {
+    color: var(--buttonHover-color);
+    background-color: var(--buttonHover-background-color);
+    border-color: var(--buttonHover-border-color);
+    border-style: inset;
+}
+/* Chrome, Safari Scrollbar*/
+::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+::-webkit-scrollbar-track-piece  {
+    background-color: var(--scrollTrack-background-color);
+    border-radius: var(--scorllTrack-border-radius);
+}
+::-webkit-scrollbar-track-piece:hover  {
+    background-color: var(--scrollTrackHover-background-color);
+    border-radius: var(--scorllTrackHover-border-radius);
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    background-color: var(--scroll-background-color);
+    border-radius: var(--scorll-border-radius);
+    height: 30px;
+}
+
+::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: var(--scrollHover-background-color);
+    border-radius: var(--scorllHover-border-radius);
+}
+
+
+
+/* Generator */
+.output {
+    resize: none;
+    width: 100%;
+    height: 9ch;
+    background-color: var(--background-color);
+    color: var(--color);
+}
+
+.get-input {
+    background-color: var(--background-color);
+    color: var(--color);
+}
+
+.get-input-label {
+    cursor: help;
+}
+
+button:hover {
+    background-color: var(--buttonHover-background-color);
+}
+
+.button {
+    opacity: 90%;
+    background-color: var(--button-background-color);
+    color: var(--button-color);
+    border-radius: var(--button-border-radius);
+    position: relative;
+    border: none;
+    padding: 5px 10px 5px 10px; 
+}
+
+.copy-button {
+    top: 30px;
+    left: 78%;
+}
+
+.open-button {
+    top: 30px;
+    left: 77%;
+}
+
+:required {
+    border-color: red;
+}
