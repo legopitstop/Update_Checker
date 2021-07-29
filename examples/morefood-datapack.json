@@ -1,6 +1,6 @@
 {
     "__comment": "This update file uses the webpage created by Legopitstop, http://127.0.0.1:5500/update-checker.html",
-    "$schema": "./schema.json",
+    "$schema": "https://github.com/legopitstop/Update_Checker/blob/main/schema.json",
     "homepage": "https://www.curseforge.com/minecraft/customization/lots-more-food-datapack",
     "premium_badge": true,
     "premium:description": {

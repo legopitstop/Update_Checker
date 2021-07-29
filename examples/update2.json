@@ -1,6 +1,6 @@
 {
     "__comment": "This is a premium URL, premium features will be optionally loaded.",
-    "$schema": "./schema.json",
+    "$schema": "https://github.com/legopitstop/Update_Checker/blob/main/schema.json",
 
     "homepage": "https://example.com",
     "premium_badge": true,
