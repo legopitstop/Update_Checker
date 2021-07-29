@@ -4,6 +4,14 @@ This project is being worked on, check back to know when everything is all ready
 - The main page can be found [update-checker.html](https://legopitstop.github.io/Update_Checker/update-checker.html)
 - The generator page can be found [update-checker-generator.html](https://legopitstop.github.io/Update_Checker/update-checker-generator.html)
 
+## Example Pages
+- Premium URL - Example of a premium url that has status of OUTDATED and UP_TO_DATE.
+    - [OUTDATED](https://legopitstop.github.io/Update_Checker/update-checker.html?updateJSONURL=https%3A%2F%2Flegopitstop.github.io%2FUpdate_Checker%2Fexamples%2Fupdate.json&mcversion=1.17&modversion=1.6.0)
+    - [UP_TO_DATE](https://legopitstop.github.io/Update_Checker/update-checker.html?updateJSONURL=https%3A%2F%2Flegopitstop.github.io%2FUpdate_Checker%2Fexamples%2Fupdate.json&mcversion=1.17&modversion=1.7.0)
+- Normal URL - Example of a non-premium url that has status of OUTDATED and UP_TO_DATE.
+    - [OUTDATED](https://legopitstop.github.io/Update_Checker/update-checker.html?updateJSONURL=https%3A%2F%2Flegopitstop.github.io%2FUpdate_Checker%2Fexamples%2Fupdate2.json&mcversion=1.17&modversion=1.6.0)
+    - [UP_TO_DATE](https://legopitstop.github.io/Update_Checker/update-checker.html?updateJSONURL=https%3A%2F%2Flegopitstop.github.io%2FUpdate_Checker%2Fexamples%2Fupdate2.json&mcversion=1.17&modversion=1.7.0)
+
 ## Packs that use this!
 well.. It seems no packs use this yet...
 
