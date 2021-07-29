@@ -2,7 +2,7 @@
     "__comment": "This is a premium URL, premium features will be optionally loaded.",
     "$schema": "./schema.json",
 
-    "homepage": "#",
+    "homepage": "https://example.com",
     "premium_badge": true,
     "premium:description": {
         "favicon": "deepslate_tiles",
