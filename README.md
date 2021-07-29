@@ -158,7 +158,7 @@ premium:style: Object
 ## Background Options
 `Name` is the name of the background that is used in the dropdown theme. `ID` is the name of the background in the URL, or preset JSON theme.
 | Name                | ID                    |
-| ------------------- | --------------------- |
+| -- | -- |
 | Deepslate           | `deepslate` (default) |
 | Polished Deepslate  | `polished_deepslate`  |
 | Deepslate Tiles     | `deepslate_tiles`     |
@@ -245,7 +245,7 @@ Changelogs inside the JSON have some special formatting like [Markdown](https://
 | Character(s) | replaced with |
 | - | - |
 | `<br>` or `</br>` | `\n` |
-| `-`, `+` or `*` (with 1 space after) | `\n• `(with 1 space after) |
+| `- `, `+ ` or `* ` (with 1 space after) | `\n• `(with 1 space after) |
 | `{{MCVERSION}}` | Returns the Minecraft version from the URL |
 | `{{MODVERSION}}` | Returns the Mod version from the URL |
 | `{{RECOMMENDEDVERSION}}` | Returns the recommended mod version from the JSON |
