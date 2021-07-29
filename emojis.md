@@ -3,7 +3,7 @@ The below table is a list of all GitHub emojis that are supported for the JSON c
 
 ## GitHub
 | Text                             | Emoji |
-| -- | -- |
+| - | - |
 | `:grinning:`                     | `😀` |
 | `:smiley:`                       | `😃` |
 | `:smile:`                        | `😄` |
@@ -112,7 +112,7 @@ The below table is a list of all GitHub emojis that are supported for the JSON c
 
 ## Text replace Emojis
 | Text              | Emoji           |
-| -- | -- |
+| - | - |
 | `(:-[` or `:[`    | `embarrased`    |
 | `:-D` or `:D`     | `😀`           |
 | `:-P` or `:P`     | `😛`           |
