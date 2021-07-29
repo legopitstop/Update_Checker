@@ -40,7 +40,7 @@ well.. It seems no packs use this yet...
 ```
 #### Visual Studio Code
 1. Open vsc settings (`Ctrl` + `,`)
-2. Open the settings JSON (icon on the top right)
+2. Open the settings JSON (![](/Update_Checker/files/theme/images/open_settings_json_vsc) icon on the top right)
 3. Paste the below JSON inside the settings JSON.
 ```json
 {
