@@ -1,7 +1,6 @@
 # Update Checker
-This project is being worked on, check back to know when everything is all ready to go!
-
-- The main page can be found [update-checker.html](https://legopitstop.github.io/Update_Checker/update-checker.html)
+What does the update checker do? The update checker will check to see if the current mod you have installed is up to date or is out of date using the JSON file provided in the URL. If you have any questions join my discord server [Official Legopitstop Discord](https://legopitstop.weebly.com/discord.html) and chat via the `#🟢│update-checker` channel.
+- The main page can be found [update-checker.html](https://legopitstop.github.io/Update_Checker/update-checker.html) (viewing the page without a updateJSONURL does make things funky, see the [Example Pages](#Example_Pages) instead. )
 - The generator page can be found [update-checker-generator.html](https://legopitstop.github.io/Update_Checker/update-checker-generator.html)
 
 ## Example Pages
@@ -11,8 +10,21 @@ This project is being worked on, check back to know when everything is all ready
 - Normal URL - Example of a non-premium url that has status of OUTDATED and UP_TO_DATE.
     - [OUTDATED](https://legopitstop.github.io/Update_Checker/update-checker.html?updateJSONURL=https%3A%2F%2Flegopitstop.github.io%2FUpdate_Checker%2Fexamples%2Fupdate2.json&mcversion=1.17&modversion=1.6.0)
     - [UP_TO_DATE](https://legopitstop.github.io/Update_Checker/update-checker.html?updateJSONURL=https%3A%2F%2Flegopitstop.github.io%2FUpdate_Checker%2Fexamples%2Fupdate2.json&mcversion=1.17&modversion=1.7.0)
+## Table of Contents
+- [Example Pages](#Example-Pages)
+- [Supported Packs](#Supported-Packs)
+- [JSON](#JSON)
+    - [Schema](#Schema)
+        - [Inside JSON](#Inside-JSON)
+        - [Visual Studio Code](#Visual-Studio-Code)
+    - [Syntax](#Syntax)
+    - [Example](#Example)
+- [Premium Members](#Premium-Members)
+    - [Additional Syntax](#Additional-Syntax)
+- [Background Options](#Background-Options)
+- [Changelog Format](#Changelog-Format)
 
-## Packs that use this!
+## Supported Packs
 well.. It seems no packs use this yet...
 
 [Back to top](#)
@@ -91,7 +103,7 @@ below you can find the example JSON file. View the [Live example](https://legopi
 
 [Back to top](#)
 
-## Premium Member URL's
+## Premium Members
 ### Additional Syntax
 ```
 premium_badge: Boolean (true)
@@ -143,7 +155,7 @@ premium:style: Object
 
 [Back to top](#)
 
-## Preset Backgrounds
+## Background Options
 - `deepslate` (default)
 - `polished_deepslate`
 - `deepslate_tiles`
