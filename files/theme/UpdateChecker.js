@@ -1,11 +1,11 @@
 /** 
  * Javascript file just for update-checker.html
 */
-// http://127.0.0.1:5500/assets/file/update.json
+// https://legopitstop.github.io/Update_Checker/examples/update.json
 // https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/
 var updateCheckerVersion = '1.0.0'
 /*
-* http://127.0.0.1:5500/update-checker.html?updateJSONURL=http://127.0.0.1:5500/assets/file/update.json&mcversion=1.17&modversion=1.6.0&theme=orange_concrete
+* https://legopitstop.github.io/Update_Checker/update-checker.html?updateJSONURL=https://legopitstop.github.io/Update_Checker/assets/file/update.json&mcversion=1.17&modversion=1.6.0&theme=orange_concrete
 * updateJSONURL - The url to get the latest up-to-date JSON
 * modversion - The current installed version to compare to.
 * mcversion - The minecraft version to grab
