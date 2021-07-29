@@ -1,9 +1,15 @@
+<!DOCTYPE html>
+<html>
+
 <head>
     <title>Pack Update Url Generator</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="A generator for Update Checker. Make creating your Update Checker URL easy and quick!">
+    <meta name="keywords" content="Legopitstop, update checker, data pack, addon, resrouce pack, minecraft, mod, generator">
+    <meta name="author" content="Legopitstop">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link class="favicon" rel="icon" type="image/png" href="./files/theme/images/favicon.png"/>
+    <link class="favicon" rel="icon" type="image/png" href="./files/theme/images/favicon.png" />
     <link rel="stylesheet" type="text/css" href="./files/theme/UpdateCheckerStyle.css" />
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="./files/theme/UpdateCheckerGenerator.js"></script>
     <script src="./files/theme/CommonUpdateChecker.js"></script>
@@ -14,28 +20,39 @@
     <div class="display-container">
         <div class="display">
             <h1 class="center">Pack Update Url Generator</h1>
-            <p>Use this page to generate your own pack updater URL using the pack checker page (<a href="/Update_Checker/update-checker.html">here</a>)</p>
+            <p>Use this page to generate your own pack updater URL using the pack checker page (<a
+                    href="/Update_Checker/update-checker.html">here</a>)</p>
             <h2>Data</h2>
             <!--updateJSONURL-->
-            <label title="The link to the JSON file that will be checked" class="get-input-label" for="updateJSONURL">JSONURL</label>
-            <input name="updateJSONURL" onchange="generateURL()" class="get-input updateJSONURL" id="updateJSONURL" type="text" placeholder="https://example.com/pack.json" required><br>
+            <label title="The link to the JSON file that will be checked" class="get-input-label"
+                for="updateJSONURL">JSONURL</label>
+            <input name="updateJSONURL" onchange="generateURL()" class="get-input updateJSONURL" id="updateJSONURL"
+                type="text" placeholder="https://example.com/pack.json" required><br>
             <!--mcversion-->
             <label title="The current minecraft version" class="get-input-label" for="mcversion">mcversion</label>
-            <input name="mcversion" list="mcversions" onchange="generateURL()" class="get-input mcversion" id="mcversion" type="text" placeholder="1.17" required><br>
+            <input name="mcversion" list="mcversions" onchange="generateURL()" class="get-input mcversion"
+                id="mcversion" type="text" placeholder="1.17" required><br>
             <!--modversion-->
             <label title="The current mod version" class="get-input-label" for="modversion">modversion</label>
-            <input name="modversion" onchange="generateURL()" class="get-input modversion" id="modversion" type="text" placeholder="1.0.0" required><br>
+            <input name="modversion" onchange="generateURL()" class="get-input modversion" id="modversion" type="text"
+                placeholder="1.0.0" required><br>
             <!--theme-->
             <label title="The background theme from the preset list" class="get-input-label" for="theme">theme</label>
-            <select name="theme" onchange="generateURL()" class="get-input theme theme-options" id="theme" type="text" placeholder="deepslate">
+            <select name="theme" onchange="generateURL()" class="get-input theme theme-options" id="theme" type="text"
+                placeholder="deepslate">
                 <option value="unset">Unset</option>
             </select><br>
             <datalist id="mcversions" class="mcversions"></datalist>
             <div class="output-container">
-                <button title="open the URL in a new tab." class="open-button button" onclick="openURL('.output')">Open</button>
-                <button title="Copy the URL to your clipboard" class="copy-button button" onclick="copyElement('.output')">Copy</button>
-                <textarea id="output" class="output" placeholder="Your output url" spellcheck="false" readonly></textarea>
+                <button title="open the URL in a new tab." class="open-button button"
+                    onclick="openURL('.output')">Open</button>
+                <button title="Copy the URL to your clipboard" class="copy-button button"
+                    onclick="copyElement('.output')">Copy</button>
+                <textarea id="output" class="output" placeholder="Your output url" spellcheck="false"
+                    readonly></textarea>
             </div>
         </div>
     </div>
 </body>
+
+</html>
