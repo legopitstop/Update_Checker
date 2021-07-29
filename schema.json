@@ -123,9 +123,12 @@
     },
     "properties": {
         "__comment": {
-            "title": "Ignored!",
+            "title": "Ignored!"
+        },
+        "credit": {
+            "description": "Unused for the checker, but is mainly used to credit Legopitstop.",
             "type": "string",
-            "default": "This update file uses the webpage created by Legopitstop, http://127.0.0.1:5500/update-checker.html"
+            "default": "This update file uses the webpage created by Legopitstop, https://legopitstop.github.io/Update_Checker/"
         },
         "homepage": {
             "description": "The link under homepage is the link the user will be shown when the mod is outdated.",
