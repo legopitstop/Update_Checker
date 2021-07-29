@@ -1,10 +1,11 @@
 {
     "__comment": "This is a premium URL, premium features will be optionally loaded.",
-    "$schema": "https://github.com/legopitstop/Update_Checker/blob/main/schema.json",
+    "$schema": "https://legopitstop.github.io/Update_Checker/schema.json",
 
     "homepage": "https://example.com",
     "premium_badge": true,
     "premium:description": {
+        "title": "Example",
         "favicon": "deepslate_tiles",
         "theme": "deepslate_tiles"
     },
