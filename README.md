@@ -157,7 +157,7 @@ premium:style: Object
 
 ## Background Options
 `Name` is the name of the background that is used in the dropdown theme. `ID` is the name of the background in the URL, or preset JSON theme.
-| Name                | ID                    |
+| Name | ID |
 | - | - |
 | Deepslate           | `deepslate` (default) |
 | Polished Deepslate  | `polished_deepslate`  |
