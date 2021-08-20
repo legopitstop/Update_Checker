@@ -218,7 +218,8 @@ function packUpdateChecker(file, mcversion, modversion) {
             }
             /* Changelog builder */
             if (json[mcversion][versionRecommended] != undefined) {
-                var changes = customEncoder(json[mcversion][versionRecommended], mcversion, modversion, versionRecommended, versionLatest, homePage, json)
+                //var changes = customEncoder(json[mcversion][versionRecommended], mcversion, modversion, versionRecommended, versionLatest, homePage, json)
+                var changes = marked(json[mcversion][versionRecommended])
                 document.querySelector('.changelog-title').innerHTML = versionRecommended + ' Changelog:'
                 $('.changelog').append(changes)
             };
@@ -383,7 +384,7 @@ function changelogWindow() {
     var content = { // the title for the window
         "theme": "dark",
         "width": "600px",
-        "title": {
+        "header": {
             "text": document.querySelector('.changelog-title').innerHTML,
             "bold": true,
             "header": 1, // 1-6
@@ -391,21 +392,12 @@ function changelogWindow() {
         },
         "body": [
             {
-                "text": " ",
-                "codeblock": {
-                    "extension": "text/plain-text",
-                    "width": "100%",
-                    "height": "20%",
-                    "readonly": true,
-                    "code": {
-                        "type": "selector",
-                        "value": ".changelog"
-                    }
-                }
+                "text": "asdf",
+                "embed": "<div>" + document.querySelector('.changelog').innerHTML + "</div>"
             }
         ]
     }
-    ModalWindow('test', 'json', content)
+    modalWindow('test', 'json', content)
 }
 
 function premiumMenu(member) {
@@ -413,7 +405,7 @@ function premiumMenu(member) {
         var content = { // the title for the window
             "theme": "dark",
             "width": "500px",
-            "title": {
+            "header": {
                 "text": "Premium Member URL",
                 "header": 1,
                 "align": "center"
@@ -421,58 +413,37 @@ function premiumMenu(member) {
             "body": [
                 {
                     "text": "This is a premium url. Premium url's allow you to customize the look and feel of your pack update page. Customizing your update page will make it better fit your pack and make it stand out from the rest!"
+                },
+                {
+                    "text": " ",
+                    "embed": "<br><a href=\"https://legopitstop.github.io/Update_Checker/#premium-members\" target=\"_blank\">Premium Documentation</a>"
                 }
             ]
         }
-        ModalWindow('premiumMenu', 'json', content)
+        modalWindow('premiumMenu', 'json', content)
 
     } else {
         if (member == false) {
             var content = { // the title for the window
                 "theme": "dark",
                 "width": "500px",
-                "title": {
+                "header": {
                     "text": "Become a Premium URL Member",
                     "header": 1,
                     "align": "center"
                 },
                 "body": [
                     {
-                        "text": "What are the benifits of a Premium URL Member?",
-                        "header": 4
+                        "text": " ",
+                        "embed": "<h4 id=\"member-benifits\">Member Benifits</h4><ul><li>Customize the title of the page.</li><li>Customize the favorate icon.</li><li>Use a custom image for the background.</li><li>Create an animated background.</li><li>Customize the text color, background color, border color, and border radius for the main menu, button, and scrollbar.</li></ul>"
                     },
                     {
-                        "text": "- Customize the title of the page."
-                    },
-                    {
-                        "text": "- Customize the favorate icon."
-                    },
-                    {
-                        "text": "- Use a custom image for the background."
-                    },
-                    {
-                        "text": "- Create an animated background."
-                    },
-                    {
-                        "text": "- Customize the text color, background color, border color, and border radius for the main menu, button, and scrollbar."
-                    },
-                    {
-                        "text": "How to become a Member?",
-                        "header": 4
-                    },
-                    {
-                        "text": "- Become a {Unknown} tier Patreon: https://www.patreon.com/Legopitstop"
-                    },
-                    {
-                        "text": "- Make sure to message Legopitstop with the JSON url."
-                    },
-                    {
-                        "text": "- After the payment has gone through at the end of the month your URL will be added to the premium url list. You can now use premium url features!"
+                        "text": " ",
+                        "embed": "<h4 id=\"how-to-become-a-member\">How to become a Member?</h4><ul><li>Become a <code>Bucket of Axolotl</code> tier <a href=\"https://www.patreon.com/Legopitstop\" target=\"__blank\">Patreon</a></li><li>Make sure to message Legopitstop with the JSON url.</li><li>After the payment has gone through at the end of the month your URL will be added to the premium url list. You can now use premium url features!</li></ul>"
                     }
-
                 ]
             }
-            ModalWindow('premiumMenu', 'json', content)
+            modalWindow('premiumMenu', 'json', content)
         } else {
             sendError('expected a boolean statement but got "' + member + '"')
         }
