@@ -116,7 +116,7 @@
             "default": {},
             "additionalProperties": {
                 "title": "MODVERSION",
-                "description": "Key must be the mod version. Value is the changelog for the update. Includes custom text replacements see documentation for more. HTML is not allowed. HTML tags will get removed. Use '\\n' to go down a line.",
+                "description": "Key must be the mod version. Value is the changelog for the update. Changelogs support markdown style. use `\n` to enter down one line.",
                 "type": "string"
             }
         }
