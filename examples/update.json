@@ -10,11 +10,12 @@
         "theme": "deepslate_tiles"
     },
     "1.17": {
-        "1.7.0": "This is the changelog that is from the JSON! * It provides some custom in-line formatting! \nLike the following: * bullets that use '*', '-', and '-' * replacement texts for example '{{HOMEPAGE}}' will return the homepage inside the JSON!",
+        "1.7.0": "Changelogs support [markdown](https://www.markdownguide.org/ \"Markdown guide\") formatting! powered by [markedjs/marked](https://github.com/markedjs/marked)\n* bullet list.\n1. numbered list\n1. *italic*\n1. **bold**\n1. **_bold italic_**\n1. `inline code`\n1. ![alt](./files/theme/images/premium.png \"Images\") Images\n1. [Links with text](https://legopitstop.github.io/Update_Checker/)\n> This is a `quoteblock`\n>> This is a nested `quoteblock`!\n\nTable\n\n| title | title |\n| -- | -- |\n| item1 | item1 |\n| item2 | item2 |\n| item3 | item3 |",
         "1.6.0": "* 1.17.1-1.6.0"
     },
     "1.16": {
         "1.5.0": "* 1.16.5-1.5.0",
+        "1.4.1": "* 1.16.5-1.5.0",
         "1.4.0": "* 1.16.5-1.4.0"
     },
     "promos": {
