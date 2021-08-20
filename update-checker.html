@@ -2,11 +2,13 @@
 
 <head>
     <title class="pageTitle">Pack Update Checker</title>
+    <!-- modules -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="256">
-    <meta name="description"
-        content="This page will check and see if you have the latest version of a mod using a JSON file as an index to search through.">
+    <meta name="description" content="This page will check and see if you have the latest version of a mod using a JSON file as an index to search through.">
     <meta name="keywords" content="Legopitstop, update checker, data pack, addon, resrouce pack, minecraft, mod">
     <meta name="author" content="Legopitstop">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +16,7 @@
         href="./files/theme/images/favicon.png" />
     <link rel="stylesheet" type="text/css" href="./files/theme/UpdateCheckerStyle.css" />
     <link rel="stylesheet" type="text/css" href="./files/theme/defaultModal.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="./files/theme/modalWindow.js"></script>
     <script src="./files/theme/Emoji.js"></script>
     <script src="./files/theme/UpdateChecker.js"></script>
     <script src="./files/theme/CommonUpdateChecker.js"></script>
@@ -38,10 +40,9 @@
                     </div>
                     <h2>Status</h2>
                     <div class="status indent"></div><br>
-                    <div class="changelog-container"
-                        title="TIP: click on the changelog area to open the changelog in a larger window.">
+                    <div class="changelog-container">
                         <b onclick="changelogWindow()" class="changelog-title"></b><br>
-                        <textarea onclick="changelogWindow()" class="changelog" readonly></textarea>
+                        <div onclick="changelogWindow()" class="changelog"></div>
                     </div>
                 </div>
             </div>
