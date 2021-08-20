@@ -4,7 +4,7 @@
     --background-color: #000000;
     --border-color: #000000;
     --border-radius: 20px;
-    
+
     /* Button */
     --button-color: #000000;
     --button-background-color: #777777;
@@ -44,12 +44,22 @@ body {
 }
 
 @keyframes scroll {
-	from { background-position: var(--background-directionFrom); }
-	to { background-position: var(--background-directionTo); }
+    from {
+        background-position: var(--background-directionFrom);
+    }
+
+    to {
+        background-position: var(--background-directionTo);
+    }
 }
 
-.premium-container {padding: 5px;}
-.premium-icon {width: 40px;}
+.premium-container {
+    padding: 5px;
+}
+
+.premium-icon {
+    width: 40px;
+}
 
 .center {
     text-align: center;
@@ -87,7 +97,9 @@ body {
     width: 100%;
     height: 23%;
     left: 0;
+    overflow-y: scroll;
 }
+
 .changelog:focus {
     outline: none;
 }
@@ -116,6 +128,7 @@ body {
     border: none;
     width: auto;
 }
+
 /* Button */
 a.button {
     text-decoration: none;
@@ -133,17 +146,19 @@ a.button:hover {
     border-color: var(--buttonHover-border-color);
     border-style: inset;
 }
+
 /* Chrome, Safari Scrollbar*/
 ::-webkit-scrollbar {
     width: 15px;
     height: 15px;
 }
 
-::-webkit-scrollbar-track-piece  {
+::-webkit-scrollbar-track-piece {
     background-color: var(--scrollTrack-background-color);
     border-radius: var(--scorllTrack-border-radius);
 }
-::-webkit-scrollbar-track-piece:hover  {
+
+::-webkit-scrollbar-track-piece:hover {
     background-color: var(--scrollTrackHover-background-color);
     border-radius: var(--scorllTrackHover-border-radius);
 }
@@ -190,7 +205,7 @@ button:hover {
     border-radius: var(--button-border-radius);
     position: relative;
     border: none;
-    padding: 5px 10px 5px 10px; 
+    padding: 5px 10px 5px 10px;
 }
 
 .copy-button {
@@ -205,4 +220,61 @@ button:hover {
 
 :required {
     border-color: red;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+/* Markdown */
+
+code:not(pre code) {
+    background-color: #161b22;
+    border-radius: 6px;
+    padding: .2em .4em;
+}
+
+pre {
+    background-color: #161b22;
+    border-radius: 6px;
+    padding: .2em .4em;
+}
+
+blockquote {
+    border-left: 5px solid #3a424a;
+    padding-left: .2rem;
+    background-color: var(--background-color);
+    margin-left: .2rem;
+}
+
+table {
+    border: 1px solid #3a424a;
+    border-color: #3a424a;
+    color: var(--color);
+    background-color: var(--background-color);
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+th {
+    padding: 4px;
+    border: 1px solid #3a424a;
+    background-color: var(--background-color);
+    width: 50%;
+}
+
+td {
+    padding: 4px;
+    border: 1px solid #3a424a;
+    overflow: hidden;
+    width: 50%;
+}
+
+tr:nth-child(even) {
+    background-color: #161b22;
+
+}
+tr:nth-child(odd) {
+    background-color: var(--background-color);
+
 }
