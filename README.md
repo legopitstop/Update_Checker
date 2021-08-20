@@ -66,7 +66,7 @@ homepage: String - The url to bring the use when the version is outdated.
 promos: Object
     <mcversion>: <modversion> - mcversion must end in `-recommended` ex: "1.13-recommended":"1.3.5-pre1"
 <mcversion>: Object
-    <modversion>: String - The changelog for the modversion. This includes custom formatting. #Changelog-Format
+    <modversion>: String - The changelog for the modversion. Supports markdown!
 ```
 
 [Back to top](#)
@@ -94,9 +94,9 @@ below you can find the example JSON file. View the [Live example](https://legopi
     },
     "promos": {
         "1.17-recommended": "1.7.0", // The recomended mod version for mc 1.17
-		"1.17-latest": "1.7.0", // Note that right now (v1.0.0) of Update Checker does not use '-latest' but may be used in the future, for now just use '-recomended'
+        "1.17-latest": "1.7.0", // Note that right now (v1.0.0) of Update Checker does not use '-latest' but may be used in the future, for now just use '-recomended'
         "1.16-recommended": "1.5.0",
-		"1.16-latest": "1.5.0"
+        "1.16-latest": "1.5.0"
     }
 }
 ```
@@ -157,8 +157,8 @@ premium:style: Object
 
 ## Background Options
 `Name` is the name of the background that is used in the dropdown theme. `ID` is the name of the background in the URL, or preset JSON theme.
-| Name | ID |
-| - | - |
+| Name                | ID                    |
+|---------------------|-----------------------|
 | Deepslate           | `deepslate` (default) |
 | Polished Deepslate  | `polished_deepslate`  |
 | Deepslate Tiles     | `deepslate_tiles`     |
@@ -240,23 +240,37 @@ premium:style: Object
 [Back to top](#)
 
 ## Changelog Format
-Changelogs inside the JSON have some special formatting like [Markdown](https://en.wikipedia.org/wiki/Markdown). Changelogs also support a select few GitHub emojis [view list](emojis.md)
+Changelogs inside the JSON support [Markdown](https://www.markdownguide.org/). Powdered by [markedjs/marked](https://github.com/markedjs/marked). Since JSON'S don't support line breaks you can instead add `\n` to define a line break or to enter down a line. This will come in handy because markdown needs it for formatting.
 
-| Character(s) | replaced with |
-| - | - |
-| `<br>` or `</br>` | `\n` |
-| `- `, `+ ` or `* ` (with 1 space after) | `\n• `(with 1 space after) |
-| `{{MCVERSION}}` | Returns the Minecraft version from the URL |
-| `{{MODVERSION}}` | Returns the Mod version from the URL |
-| `{{RECOMMENDEDVERSION}}` | Returns the recommended mod version from the JSON |
-| `{{LATESTVERSION}}` | Returns the latest mod version from the JSON |
-| `{{HOMEPAGE}}` | Returns the home page URL from the JSON |
-| `{{URLDATA}}` | Returns the data in the URL |
-| `{{UPDATEJSONURL}}` | Returns the JSON that it is getting all the info from |
-| `{{UPDATEJSONURL: pretty-print}}` | Returns the JSON that it is getting all the info from but in pretty-print |
-| `{{UPDATECHECKERVERSION}}` | Returns the current verison of the update checker |
-| HTML Tags | Gets removed |
-| Markdown image | Gets replaced with the image url |
-| Markdown Url | Gets replaced with the url |
+### Update Checker Markdown Support
+
+| Element | Support | Notes |
+|--|--|--|
+| [Headings](https://www.markdownguide.org/basic-syntax#headings) | Yes |  |
+| [Paragraphs](https://www.markdownguide.org/basic-syntax/#paragraphs-1) | Yes |  |
+| [Line breaks](https://www.markdownguide.org/basic-syntax/#line-breaks) | Yes |  |
+| [Bold](https://www.markdownguide.org/basic-syntax#bold) | Yes |  |
+| [Italic](https://www.markdownguide.org/basic-syntax#italic) | Yes |  |
+| [Blockquotes](https://www.markdownguide.org/basic-syntax#blockquotes-1) | Yes | You can use >>> to create a multi-line blockquote. All text from the >>> to the end of the message will be included in the quote. |
+| [Ordered Lists](https://www.markdownguide.org/basic-syntax#ordered-lists) | Yes |  |
+| [Unordered Lists](https://www.markdownguide.org/basic-syntax#unordered-lists) | Yes |  |
+| [Code](https://www.markdownguide.org/basic-syntax#code) | Yes |  |
+| [Horizonal Rules](https://www.markdownguide.org/basic-syntax/#horizontal-rules) | Yes |  |
+| [Links](https://www.markdownguide.org/basic-syntax/#links) | Yes |  |
+| [Images](https://www.markdownguide.org/basic-syntax/#images-1) | Yes |  |
+| [Tables](https://www.markdownguide.org/extended-syntax/#tables) | Yes |  |
+| [Fenced Codeblocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks) | Yes |  |
+| [Syntax Highlighting](https://www.markdownguide.org/extended-syntax/#syntax-highlighting) | No |  |
+| [Footnotes](https://www.markdownguide.org/extended-syntax/#footnotes) | No |  |
+| [Heading ID's ](https://www.markdownguide.org/extended-syntax/#heading-ids) | No |
+| [Definition Lists](https://www.markdownguide.org/extended-syntax/#definition-lists) | No |  |
+| [Strikethrough](https://www.markdownguide.org/extended-syntax/#strikethrough) | Yes | Two tildes (`~~word~~`) only. |
+| [Task Lists](https://www.markdownguide.org/extended-syntax/#task-lists) | Yes |  |
+| [Emoji (copy and paste)](https://www.markdownguide.org/extended-syntax/#copying-and-pasting-emoji) | Yes |  |
+| [Emoji (shortcpdes)](https://www.markdownguide.org/extended-syntax/#using-emoji-shortcodes) | No |  |
+| [Automatic URL Linking](https://www.markdownguide.org/extended-syntax/#automatic-url-linking) | Yes |  |
+| [Disabling URL Linking](https://www.markdownguide.org/extended-syntax/#disabling-automatic-url-linking) | No | Becomes inline code |
+| [HTML](https://www.markdownguide.org/basic-syntax/#html) | Yes |  |
+
 
 [Back to top](#)
