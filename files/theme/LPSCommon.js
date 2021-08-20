@@ -1,5 +1,10 @@
+
 $(document).ready(function () {
-    isRequired()
+    /* Run functions */
+    isRequired();
+    convertURL(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'b', 'strong', 'i', 'em', 'mark', 'small', 'del', 'ins', 'sub', 'sup', 'th', 'td']);
+    codeblock('textarea.codeblock');
+    markdown('.markdown')
 });
 
 /* When a required input is empty set the border color to red */
@@ -13,11 +18,30 @@ function isRequired() {
 }
 
 /**
- * @param {integer} min If true it will show a confirmation menu.
- * @param {integer} max The element to clear.
+ * @param {Number} min If true it will show a confirmation menu.
+ * @param {Number} max The element to clear.
  * @returns A random number between the min and max
  */
 function rng(min, max) {
+    var rng = Math.floor(Math.random() * (max - min) + min);
+    return rng
+}
+/**
+ * @param {Number} min If true it will show a confirmation menu.
+ * @param {Number} max The element to clear.
+ * @returns A random number between the min and max
+ */
+function randomNumber(min, max) {
+    var rng = Math.floor(Math.random() * (max - min) + min);
+    return rng
+}
+
+/**
+ * @returns A random number (id) that is imbetween 100000 - 999999
+ */
+function randomId() {
+    var min = 100000
+    var max = 999999
     var rng = Math.floor(Math.random() * (max - min) + min);
     return rng
 }
@@ -51,7 +75,21 @@ function copyElement(element) {
     } else {
         return false;
     }
+}
 
+/**
+ * @param {string} element The element to copy.
+ * @returns Copies the value in element. Also returns a boolean
+ */
+function copyElementId(element) {
+    var target = document.getElementById(element);
+    if (target.value != '') {
+        target.select();
+        document.execCommand("copy");
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /**
@@ -71,7 +109,7 @@ function cutElement(element) {
 }
 
 /**
- * @param event The element to copy.
+ * @param event The element to check.
  * @returns Returns the type of keypress that was activated.
  */
 function pressKey(event) {
@@ -292,208 +330,6 @@ function showElement(selector) {
 }
 
 /**
- * Creates a new window to add diffrent functions!
- * @example
- * // Will show the element with the class 'test'
- * showElement('.test')
- * @param {string} selector The element to show
-*/
-// https://www.w3schools.com/howto/howto_css_modals.asp
-function ModalWindow(modalID, type, input) {
-    if (input.width != undefined) { var Width = 'width: ' + input.width + ';' } else {var Width = ''}
-    if (input.height != undefined) { var Height = 'height: ' + input.height + ';' } else {var Height = ''}
-    var base = '<div id="' + modalID + '-container" class="modal"><div class="modal-content" style="' + Width + Height + '"><span class="close">&times;</span><div id="' + modalID + '"></div></div></div>'
-    var createModal = document.createElement("div");
-    createModal.innerHTML = base;
-    document.body.appendChild(createModal);
-
-    // build
-    if (type == 'json') {
-        var file = $('#' + modalID)
-        // Create Contents
-        if (input.theme == 'dark') {
-            document.querySelector('.modal-content').classList.add('dark')
-        } else {
-            document.querySelector('.modal-content').classList.add('light')
-        }
-        if (input.title) {
-            file.append(styleBuilder(input.title, input.title.text))
-        };
-        if (input.body) {
-            input.body.forEach(
-                input => {
-                    if (input.text) {
-                        file.append(styleBuilder(input, input.text))
-                    }
-                    if (input.translate) {
-                        // .replace(/(^%s)/g, '<span id="replace' + i + '"></span>')
-                        var output = input.translate.replace(/(%%)([1-9])/g, '<span id="replace$2"></span>')
-                        if (output.includes('%s')) { sendError('Replacement "%s" has not been added yet! please use "%%[1-9]" instead.') }
-                        file.append(styleBuilder(input, output))
-                        for (let i = 1; i < input.with.length + 1; i++) {
-                            var id = 'replace' + i
-                            document.getElementById(id).innerHTML = input.with[i - 1]
-                        }
-                    }
-                }
-            )
-        }
-    } else {
-        sendError('Unknown type for function ModalWindow()')
-    }
-    function styleBuilder(json, text) {
-        var Color = ''
-        var Font = ''
-        var Bold = ''
-        var Italic = ''
-        var Underline = ''
-        var Strikethrough = ''
-        /* Common */
-        if (json.color != undefined) { var Color = ' color:' + json.color + ';' } else { var Color = '' };
-        if (json.font != undefined) { var Font = ' font-family:' + json.font + ';' } else { var Font = '' };
-        if (json.bold != undefined) { if (json.bold == true) { var Bold = ' font-weight: bold;' } else { var Bold = '' } } else { var Bold = '' };
-        if (json.italic != undefined) { if (json.italic == true) { var Italic = ' font-style: italic;' } else { var Italic = '' } } else { var Italic = '' };
-        if (json.underlined != undefined) { if (json.underlined == true) { var Underline = 'underline ' } else { var Underline = '' } } else { var Underline = '' };
-        if (json.strikethrough != undefined) { if (json.strikethrough == true) { var Strikethrough = 'line-through ' } else { var Strikethrough = '' } } else { var Strikethrough = '' };
-
-        if (json.align != undefined) { var Align = 'text-align:' + json.align + ';' } else { var Align = '' };
-        if (json.header != undefined) { if (json.header <= 6) { var element = 'h' + json.header } else { var element = 'p'; sendError('max level for header is 6, but got ' + json.header) } } else { var element = 'p' };
-        var decor = ' text-decoration:' + Underline + Strikethrough + ';'
-        var style = Color + Bold + Italic + Font + Align + decor
-
-        /* clickEvent */
-        if (json.clickEvent != undefined) {
-            if (json.clickEvent.action == 'open_url') {
-                console.log(json.clickEvent.value)
-                //var click = ' onclick="window.open(' + json.clickEvent.value + ')"'
-                var click = ''
-            } else {
-                if (json.clickEvent.action == 'copy_to_clipboard') {
-                    console.log(json.clickEvent.value)
-                    var click = ' copyElement(' + json.clickEvent.value + ')"'
-                } else {
-                    sendError('Unknown action type, expected "open_url" or "copy_to_clipboard" but got "' + json.clickEvent.action + '"')
-                }
-            }
-            var click = ''
-        }
-        /* hoverEvent */
-        if (json.hoverEvent != undefined) {
-            if (json.hoverEvent.action == 'show_text') {
-                var title = ' title="' + json.hoverEvent.contents.text + '" '
-            } else {
-                var title = ''
-            }
-        } else {
-            var title = ''
-        }
-        /* input */
-        if (json.input != undefined) {
-            /* UUID */
-            if (json.input.id == undefined) { var UUID = rng(1111, 9999) } else { var UUID = json.input.id };
-            if (json.input.type != undefined) { var Type = json.input.type } else { var Type = 'text' }
-            if (json.input.examples != undefined) {
-                var List = ' list="' + UUID + '-list"'
-                json.input.examples.forEach(json => {
-                    /* create datalist */
-                    var createModal = document.createElement("datalist");
-                    createModal.id = UUID + '-list'
-                    document.body.appendChild(createModal);
-
-                    console.log(document.getElementById(UUID + '-list'))
-                    $('#' + UUID + '-list').append('<option value="' + json + '">' + json + '</option>')
-                })
-            } else {
-                var List = ''
-            }
-            var input = '<input class="modal-input' + List + ' id="' + UUID + '" type="' + Type + '"/>'
-        }
-        /* Code block */
-        if (json.codeblock != undefined) {
-            /* ID */
-            var codeFile = json.codeblock.code
-            if (json.codeblock.id == undefined) { var ID = rng(1111, 9999) } else { var ID = json.codeblock.id };
-            if (json.codeblock.width != undefined) { var Width = ' width:' + json.codeblock.width + ';' } else { var Width = '' };
-            if (json.codeblock.height != undefined) { var Height = ' height:' + json.codeblock.height + ';' } else { var Height = '' };
-            if (json.codeblock.readonly == true) { var Readonly = 'readonly' } else { var Readonly = '' };
-            if (json.codeblock.extension == 'text/json') {
-                /* contents use the JSON inside 'values'*/
-                if (codeFile.type == 'contents') {
-                    if (codeFile.pretty_print == true) {
-                        var code = JSON.stringify(code.value, null, 4)
-                    } else {
-                        var code = JSON.stringify(code.value)
-                    }
-                }
-                /* referance to URL */
-                if (codeFile.type == 'ref') {
-                    var code = ''
-                    $.getJSON(codeFile.value, function (value) {
-                        if (codeFile.pretty_print == true) {
-                            $('#' + ID).append(JSON.stringify(value, null, 4))
-                        } else {
-                            $('#' + ID).append(JSON.stringify(value))
-                        }
-                    })
-                }
-                /* Grabs the contents from a diffrent element */
-                if (codeFile.type == 'selector') {
-                    if (codeFile.pretty_print == true) {
-                        var code = JSON.stringify(document.querySelector(codeFile.value).innerHTML, null, 4)
-                    } else {
-                        var code = JSON.stringify(document.querySelector(codeFile.value).innerHTML)
-                    }
-                }
-            } else {
-                /* contents use the JSON inside 'values'*/
-                if (codeFile.type == 'contents') {
-                    var code = codeFile.value
-                }
-                /* Grabs the contents from a diffrent element */
-                if (codeFile.type == 'selector') {
-                    var code = document.querySelector(codeFile.value).innerHTML
-                }
-            }
-            var input = '<br><textarea class="modal-codeblock" id="' + ID + '" style="' + Width + Height + '" ' + Readonly + '>' + code + '</textarea>'
-        }
-        /* Button */
-        if (json.style == 'button') {
-            return '<button class="modal-button"' + click + ' style="' + style + '">' + text + '</button>'
-        } else {
-            if (json.input != undefined) {
-                return '<label for="' + UUID + '" ' + click + title + 'style="' + style + '">' + text + ' </label>' + input
-            } else {
-                if (json.codeblock != undefined) {
-                    return '<label for="' + ID + '" ' + click + title + 'style="' + style + '">' + text + ' </label>' + input
-                } else {
-                    return '<' + element + ' ' + click + title + 'style="' + style + '">' + text + '</' + element + '>'
-                }
-            }
-        }
-    }
-
-
-    var modal = document.querySelector('#' + modalID + '-container')
-    document.querySelector('#' + modalID + '-container').style.display = "block";
-    var span = document.getElementsByClassName("close")[0];
-    span.onclick = function () {
-        //modal.style.display = "none";
-        closeModal()
-    }
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            //modal.style.display = "none";
-            closeModal()
-        }
-    }
-}
-
-function closeModal() {
-    var removeElement = document.querySelector('.modal');
-    removeElement.remove();
-}
-
-/**
  * Sends an error via console and alert message.
  * @param {string} errorMessage The element to show
 */
@@ -501,4 +337,150 @@ function sendError(errorMessage) {
     console.error('Error: ' + errorMessage)
     alert('Error: ' + errorMessage)
     return 'Error: ' + errorMessage
+}
+
+/**
+ * Add properties to codeblock.
+ * @example
+ * // Will add a copy button
+ * <textarea class="codeblock"></textarea>
+ * @param {String} [selector] The jquery selector to use. default: `textarea.codeblock`
+ * @param {String} [icon] The Google Material icon to use. default: `content_paste`
+*/
+function codeblock(selector, icon) {
+    if (!selector) { var selector = 'textarea.codeblock' }
+    if (!icon) { var icon = 'content_paste' }
+    if ($(selector).length > 0) {
+        const BLOCK = document.querySelector(selector);
+        /* Add custom ID if it has none */
+        if (!BLOCK.id) { var ID = uuid(); BLOCK.id = ID } else { var ID = BLOCK.id }
+        $("textarea.codeblock").wrap('<div class="codeblock-container" style="position: relative;"></div>')
+        $(".codeblock-container").append('<button style="position: absolute; top: 10px; right: 6px; display: none;" onmouseenter="this.style.display = \'block\'" onclick="copyElementId(\'' + ID + '\'); this.style.display = \'none\'" class="codeblock-copy-button material-icons">' + icon + '</button>')
+        const CONTAINER = document.querySelector('.codeblock-container');
+        /* Copy the height and with of block to container */
+        if (BLOCK.style.width == '') {
+            CONTAINER.style.width = '40%'
+        } else {
+            CONTAINER.style.width = BLOCK.style.width
+        }
+
+        if (BLOCK.style.height == '') {
+            CONTAINER.style.height = '200px'
+        } else {
+            CONTAINER.style.height = BLOCK.style.height
+        }
+        BLOCK.style.width = '100%'
+        BLOCK.style.height = '100%'
+        BLOCK.rows = '0'
+        BLOCK.cols = '0'
+        /* Apply properties to block */
+        BLOCK.readOnly = true;
+        BLOCK.onmouseenter = function () { document.querySelector('.codeblock-copy-button').style.display = 'block' }
+        BLOCK.onmouseleave = function () { document.querySelector('.codeblock-copy-button').style.display = 'none' }
+        BLOCK.style.resize = 'none';
+
+    }
+}
+
+/**
+ * @returns UUIDv4
+ */
+function uuid() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
+/**
+ * 
+ * @param {String} elementId The element id to focus on.
+ * @param {Boolean} [preventScroll] When true it will not scroll to the element
+ */
+function focusId(elementId, preventScroll) {
+    if (preventScroll == true) {
+        document.getElementById(elementId).focus({ preventScroll: true });
+    } else {
+        document.getElementById(elementId).focus({ preventScroll: false });
+    }
+}
+/**
+ * 
+ * @param {*} selectors The jquery selector element to focus on.
+ * @param {Boolean} [preventScroll] When true it will not scroll to the element
+ */
+function focusSelector(selectors, preventScroll) {
+    if (preventScroll == true) {
+        document.querySelector(selectors).focus({ preventScroll: true });
+    } else {
+        document.querySelector(selectors).focus({ preventScroll: false });
+    }
+}
+
+/**
+ * 
+ * @param {String} elementId The element id to select.
+ */
+function selectId(elementId) {
+    document.getElementById(elementId).select();
+}
+/**
+ * 
+ * @param {*} selectors The jquery selector element to select
+ */
+function selectSelector(elementId) {
+    document.querySelector(elementId).select();
+}
+
+/**
+ * 
+ * @param {String} elementId The element id to scroll to.
+ * @param {Boolean} [smooth] When true it will not jump to the element
+ */
+function scrollToId(elementId, smooth) {
+    if (smooth == true) {
+        document.getElementById(elementId).scrollIntoView({ behavior: "smooth" });
+    } else {
+        document.getElementById(elementId).scrollIntoView({ behavior: "auto" });
+    }
+}
+/**
+ * 
+ * @param {*} selectors The jquery selector element id to scroll to.
+ * @param {Boolean} [smooth] When true it will not jump to the element
+ */
+function scrollToSelector(selectors, smooth) {
+    if (smooth == true) {
+        document.querySelector(selectors).scrollIntoView({ behavior: "smooth" });
+    } else {
+        document.querySelector(selectors).scrollIntoView({ behavior: "auto" });
+    }
+}
+
+/**
+ * Automaticlly places the URL in <a> making it a working URL
+ * @param {Array} selectorList An array list of all allowed selectors.
+ */
+function convertURL(selectorList) {
+    if (!selectorList) { var selectorList = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'b', 'strong', 'i', 'em', 'mark', 'small', 'del', 'ins', 'sub', 'sup', 'th', 'td'] }
+    for (let i = 0; i < selectorList.length; i++) {
+        if ($(selectorList[i]).length > 0) {
+            document.querySelector(selectorList[i]).innerHTML = document.querySelector(selectorList[i]).innerHTML.trim().replace(/((https?|ftp):\/\/(?:www\.|(?!www))[^\s.]+\.\S{2,}|www\.\S+\.\S{2,})/g, '<!-- Autogenerated --><a href="$1" title="$1" target="_blank">$1</a>')
+        }
+
+    }
+}
+
+/**
+ * Converts markdown formatted text to HTML
+ * @example
+ * // returns <h1>header</h1><p><strong>Hello</strong> World!</p>
+ * <div class="markdown"># header\n**Hello** world!</div>
+ * markdown('.markdown')
+ * @param {String} selector The selector to conver to HTML using markdown format.
+ */
+function markdown(selector) {
+    if ($(selector).length > 0) {
+        document.querySelector(selector).innerHTML = marked(document.querySelector(selector).innerHTML.replace(/\\n/g, '\n'))
+    }
 }
