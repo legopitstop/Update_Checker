@@ -4,6 +4,7 @@ What does the update checker do? The update checker will check to see if the cur
 - The generator page can be found [update-checker-generator.html](https://legopitstop.github.io/Update_Checker/update-checker-generator.html)
 
 ## Planned Features
+- [ ] Clicking download will bring you through an Premium URL ad, then to download link. (optional for premium)
 - [ ] Changelog supports:
     - Short emojis
     - Spoilar `||spolier content||`
