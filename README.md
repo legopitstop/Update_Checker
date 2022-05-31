@@ -3,22 +3,6 @@ What does the update checker do? The update checker will check to see if the cur
 - The main page can be found [update-checker.html](https://legopitstop.github.io/Update_Checker/update-checker.html) (viewing the page without a updateJSONURL does make things funky, see the [Example Pages](#Example_Pages) instead. )
 - The generator page can be found [update-checker-generator.html](https://legopitstop.github.io/Update_Checker/update-checker-generator.html)
 
-## Planned Features
-- [ ] Clicking download will bring you through an Premium URL ad, then to download link. (optional for premium)
-- [ ] Changelog supports:
-    - Short emojis
-    - Spoilar `||spolier content||`
-    - Custom varables, i.e. `${MODVERSION}` `${MCVERSION}`
-    - You can define a url to a MD or TXT file instead of inline markdown.
-
-- [ ] More premium features:
-    - Shorten link. i.e. https://legopitstop.github.io/Update_Checker/update-checker.html?premium=1234
-    - panorma background (like Minecraft)
-    - Customize markdown style via JSON.
-    - Add link to CSS file for formatting instead of using JSON.
-
-If you have any ideas drop them via the issues tab (use the feature template) [issues](https://github.com/legopitstop/Update_Checker/issues)
-
 ## Example Pages
 - Premium URL - Example of a premium url that has status of OUTDATED and UP_TO_DATE.
     - [OUTDATED](https://legopitstop.github.io/Update_Checker/update-checker.html?updateJSONURL=https%3A%2F%2Flegopitstop.github.io%2FUpdate_Checker%2Fexamples%2Fupdate.json&mcversion=1.17&modversion=1.6.0)
@@ -42,7 +26,7 @@ If you have any ideas drop them via the issues tab (use the feature template) [i
 - [Changelog Format](#changelog-format)
 
 ## Supported Packs
-well.. It seems no packs use this yet...
+Most of [Legopitstop's packs](https://www.curseforge.com/members/legopitstop/projects) use this Update Checker
 
 [Back to top](#)
 
@@ -57,7 +41,7 @@ well.. It seems no packs use this yet...
 ```
 #### Visual Studio Code
 1. Open vsc settings (`Ctrl` + `,`)
-2. Open the settings JSON (![](/Update_Checker/files/theme/images/open_settings_json_vsc.png) icon on the top right)
+2. Open the settings JSON icon on the top right
 3. Paste the below JSON inside the settings JSON.
 ```json
 {
