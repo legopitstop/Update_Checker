@@ -4,7 +4,10 @@
     "description": "Schema for datapack JSON Updater.",
     "definitions": {
         "MinecraftVersions": {
-            "enum": [
+            "examples": [
+                "1.18",
+                "1.18.1",
+                "1.18.2",
                 "1.17",
                 "1.17.1",
                 "1.16",
@@ -24,7 +27,9 @@
                 "1.13",
                 "1.13.1",
                 "1.13.2"
-            ]
+            ],
+            "type": "string",
+            "pattern": "^1.[0-9]{2}$|^1.[0-9]{2,}.[0-9]{1}$"
         },
         "versionNumber": {
             "pattern": "(d+.)?(d+.)?(*|d+)"
