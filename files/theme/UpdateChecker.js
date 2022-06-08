@@ -219,7 +219,7 @@ function packUpdateChecker(file, mcversion, modversion) {
             /* Changelog builder */
             if (json[mcversion][versionRecommended] != undefined) {
                 //var changes = customEncoder(json[mcversion][versionRecommended], mcversion, modversion, versionRecommended, versionLatest, homePage, json)
-                var changes = marked(json[mcversion][versionRecommended])
+                var changes = marked.parse(json[mcversion][versionRecommended])
                 document.querySelector('.changelog-title').innerHTML = versionRecommended + ' Changelog:'
                 $('.changelog').append(changes)
             };

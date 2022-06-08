@@ -481,6 +481,6 @@ function convertURL(selectorList) {
  */
 function markdown(selector) {
     if ($(selector).length > 0) {
-        document.querySelector(selector).innerHTML = marked(document.querySelector(selector).innerHTML.replace(/\\n/g, '\n'))
+        document.querySelector(selector).innerHTML = marked.parse(document.querySelector(selector).innerHTML.replace(/\\n/g, '\n'))
     }
 }
